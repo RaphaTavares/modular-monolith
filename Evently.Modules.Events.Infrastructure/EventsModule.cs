@@ -16,17 +16,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
+using Evently.Common.Presentation.Endpoints;
 
 namespace Evently.Modules.Events.Infrastructure;
 public static class EventsModule
 {
-    public static void MapEndpoints(IEndpointRouteBuilder app)
-    {
-        EventEndpoints.MapEndpoints(app);
-    }
-
     public static IServiceCollection AddEventsModule(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddEndpoints(Presentation.AssemblyReference.Assembly);
         services.AddInfrastructure(configuration);
 
         return services;

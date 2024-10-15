@@ -1,4 +1,5 @@
 ﻿using Evently.Common.Domain;
+using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Application.Events.RescheduleEvent;
 using Evently.Modules.Events.Presentation.ApiResults;
 using MediatR;
@@ -8,11 +9,11 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Evently.Modules.Events.Presentation.Events;
 
-internal static class RescheduleEvent
+internal sealed class RescheduleEvent : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapPut("events/{id}/reschedule", async (Guid id, Request request, ISender sender) =>
+        routeBuilder.MapPut("events/{id}/reschedule", async (Guid id, Request request, ISender sender) =>
         {
             Result result = await sender.Send(
                 new RescheduleEventCommand(id, request.StartsAtUtc, request.EndsAtUtc));

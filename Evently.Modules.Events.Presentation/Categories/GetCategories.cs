@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Evently.Common.Application.Caching;
+﻿using Evently.Common.Application.Caching;
 using Evently.Common.Domain;
+using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Application.Categories.GetCategories;
 using Evently.Modules.Events.Application.Categories.GetCategory;
 using Evently.Modules.Events.Presentation.ApiResults;
@@ -11,11 +11,11 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Evently.Modules.Events.Presentation.Categories;
 
-internal static class GetCategories
+internal sealed class GetCategories : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapGet("categories", async (ISender sender, ICacheService cacheService) =>
+        routeBuilder.MapGet("categories", async (ISender sender, ICacheService cacheService) =>
         {
             IReadOnlyCollection<CategoryResponse> categoryResponses = await cacheService.GetAsync<IReadOnlyCollection<CategoryResponse>>("categories");
 

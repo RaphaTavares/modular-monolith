@@ -1,4 +1,5 @@
 ﻿using Evently.Common.Domain;
+using Evently.Common.Presentation.Endpoints;
 using Evently.Modules.Events.Application.Events.CreateEvent;
 using Evently.Modules.Events.Presentation.ApiResults;
 using MediatR;
@@ -8,11 +9,11 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Evently.Modules.Events.Presentation.Events;
 
-public static class CreateEvent
+public sealed class CreateEvent : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapPost("events", async (Request request, ISender sender) =>
+        routeBuilder.MapPost("events", async (Request request, ISender sender) =>
         {
             Result<Guid> result = await sender.Send(new CreateEventCommand(
                 request.CategoryId,
