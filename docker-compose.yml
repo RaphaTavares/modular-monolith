@@ -10,6 +10,10 @@ services:
     ports:
       - 3000:8080
       - 3001:8081
+    depends_on:
+      - evently.database
+      - evently.redis
+      - evently.seq
 
   evently.database:
     image: postgres:latest
@@ -31,3 +35,10 @@ services:
     ports:
       - 5341:5341
       - 8081:80
+
+  evently.redis:
+    image: redis:latest
+    container_name: Evently.Redis
+    restart: always
+    ports:
+      - 6379:6379
