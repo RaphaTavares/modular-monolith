@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
 using Evently.Common.Presentation.Endpoints;
+using Evently.Common.Infrastructure.Outbox;
 
 namespace Evently.Modules.Events.Infrastructure;
 public static class EventsModule
@@ -33,13 +34,14 @@ public static class EventsModule
     {
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
 
-        services.AddDbContext<EventsDbContext>(options =>
+        services.AddDbContext<EventsDbContext>((sp, options) =>
             options
                 .UseNpgsql(
                     databaseConnectionString,
                     npgsqlOptionsAction => npgsqlOptionsAction
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Events))
-                .UseSnakeCaseNamingConvention());
+                .UseSnakeCaseNamingConvention()
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
 
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
