@@ -1,6 +1,6 @@
 ﻿using Evently.Common.Domain;
 using Evently.Common.Presentation.Endpoints;
-using Evently.Common.Presentation.Results;
+using Evently.Modules.Events.Presentation.ApiResults;
 using Evently.Modules.Users.Application.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -11,9 +11,9 @@ namespace Evently.Modules.Users.Presentation.Users;
 
 internal sealed class UpdateUserProfile : IEndpoint
 {
-    public void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapPut("users/{id}/profile", async (Guid id, Request request,  ISender sender) =>
+        routeBuilder.MapPut("users/{id}/profile", async (Guid id, Request request,  ISender sender) =>
         {
             Result result = await sender.Send(new UpdateUserCommand(
                 id,
