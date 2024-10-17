@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\..\Evently.Modules.Events.PublicApi\Evently.Modules.Events.PublicApi.csproj" />
     <ProjectReference Include="..\Evently.Common.Infrastructure\Evently.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\Evently.Common.Presentation\Evently.Common.Presentation.csproj" />
     <ProjectReference Include="..\Evently.Modules.Events.Application\Evently.Modules.Events.Application.csproj" />
@@ -8,6 +7,7 @@
   </ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Database\Migrations\" />
+	  <Folder Include="PublicApi\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.2" />
