@@ -1,6 +1,6 @@
 ﻿using Evently.Common.Domain;
 using Evently.Common.Presentation.Endpoints;
-using Evently.Common.Presentation.Results;
+using Evently.Modules.Events.Presentation.ApiResults;
 using Evently.Modules.Users.Application.Users.GetUser;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -11,9 +11,9 @@ namespace Evently.Modules.Users.Presentation.Users;
 
 internal sealed class GetUserProfile : IEndpoint
 {
-    public void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapGet("users/{id}/profile", async (Guid id, ISender sender) =>
+        routeBuilder.MapGet("users/{id}/profile", async (Guid id, ISender sender) =>
         {
             Result<UserResponse> result = await sender.Send(new GetUserQuery(id));
 

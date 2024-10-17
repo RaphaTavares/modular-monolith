@@ -1,6 +1,6 @@
 ﻿using Evently.Common.Domain;
 using Evently.Common.Presentation.Endpoints;
-using Evently.Common.Presentation.Results;
+using Evently.Modules.Events.Presentation.ApiResults;
 using Evently.Modules.Users.Application.Users.RegisterUser;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -11,9 +11,9 @@ namespace Evently.Modules.Users.Presentation.Users;
 
 internal sealed class RegisterUser : IEndpoint
 {
-    public void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapPost("users/register", async (Request request, ISender sender) =>
+        routeBuilder.MapPost("users/register", async (Request request, ISender sender) =>
         {
             Result<Guid> result = await sender.Send(new RegisterUserCommand(
                 request.Email,

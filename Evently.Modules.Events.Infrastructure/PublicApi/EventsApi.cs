@@ -2,6 +2,7 @@
 using Evently.Modules.Events.Application.TicketTypes.GetTicketType;
 using Evently.Modules.Events.PublicApi;
 using MediatR;
+using TicketTypeResponse = Evently.Modules.Events.PublicApi.TicketTypeResponse;
 
 namespace Evently.Modules.Events.Infrastructure.PublicApi;
 internal sealed class EventsApi(ISender sender) : IEventsApi

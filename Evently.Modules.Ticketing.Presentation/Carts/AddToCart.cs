@@ -1,6 +1,5 @@
 ﻿using Evently.Common.Domain;
 using Evently.Common.Presentation.Endpoints;
-using Evently.Common.Presentation.Results;
 using Evently.Modules.Events.Presentation.ApiResults;
 using Evently.Modules.Ticketing.Application.Carts.AddItemToCart;
 using MediatR;
@@ -12,9 +11,9 @@ namespace Evently.Modules.Ticketing.Presentation.Carts;
 
 internal sealed class AddToCart : IEndpoint
 {
-    public void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
     {
-        app.MapPut("carts/add", async (Request request, ISender sender) =>
+        routeBuilder.MapPut("carts/add", async (Request request, ISender sender) =>
         {
             Result result = await sender.Send(
                 new AddItemToCartCommand(
