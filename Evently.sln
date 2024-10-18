@@ -61,8 +61,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evently.Modules.Ticketing.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evently.Modules.Ticketing.Infrastructure", "Evently.Modules.Ticketing.Infrastructure\Evently.Modules.Ticketing.Infrastructure.csproj", "{9A3E1670-0EA9-4E19-BB6E-772370E4BF06}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evently.Modules.Events.PublicApi", "Evently.Modules.Events.PublicApi\Evently.Modules.Events.PublicApi.csproj", "{AADB8B49-C1DD-416B-8810-C7F496037589}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evently.Modules.Users.IntegrationEvents", "Evently.Modules.Users.IntegrationEvents\Evently.Modules.Users.IntegrationEvents.csproj", "{AAA4F77C-20D4-4835-AC81-E03C062A59B9}"
 EndProject
 Global
@@ -143,10 +141,6 @@ Global
 		{9A3E1670-0EA9-4E19-BB6E-772370E4BF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A3E1670-0EA9-4E19-BB6E-772370E4BF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A3E1670-0EA9-4E19-BB6E-772370E4BF06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AADB8B49-C1DD-416B-8810-C7F496037589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AADB8B49-C1DD-416B-8810-C7F496037589}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AADB8B49-C1DD-416B-8810-C7F496037589}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AADB8B49-C1DD-416B-8810-C7F496037589}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAA4F77C-20D4-4835-AC81-E03C062A59B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AAA4F77C-20D4-4835-AC81-E03C062A59B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA4F77C-20D4-4835-AC81-E03C062A59B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -179,7 +173,6 @@ Global
 		{C7B36985-448F-4504-942C-820D6C062352} = {88771DA4-4D36-4DF4-A213-B38EF2A6049A}
 		{B1FA8CDE-C94D-4272-8113-9DA1276AC098} = {88771DA4-4D36-4DF4-A213-B38EF2A6049A}
 		{9A3E1670-0EA9-4E19-BB6E-772370E4BF06} = {88771DA4-4D36-4DF4-A213-B38EF2A6049A}
-		{AADB8B49-C1DD-416B-8810-C7F496037589} = {182296AF-2987-4D85-9BF4-63A3C7FF5503}
 		{AAA4F77C-20D4-4835-AC81-E03C062A59B9} = {10FB3B34-B8FD-4291-A3DB-DC04281B6CC2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
