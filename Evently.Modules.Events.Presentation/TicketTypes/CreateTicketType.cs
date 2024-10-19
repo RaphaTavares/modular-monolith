@@ -22,8 +22,9 @@ internal sealed class CreateTicketType : IEndpoint
                 request.Currency,
                 request.Quantity));
 
-            return result.Match(Results.Ok, Common.Presentation.ApiResults.ApiResults.Problem);
+            return result.Match(Results.Ok, ApiResults.Problem);
         })
+        .RequireAuthorization()
         .WithTags(Tags.TicketTypes);
     }
 
