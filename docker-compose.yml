@@ -23,7 +23,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./.containers/db:/var/lib/postgresql/data
+      - ./.containers/evently/db:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
@@ -52,7 +52,7 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     volumes:
-      - ./.containers/identity:/opt/keycloak/data
-      - ./.files:/opt/keycloak/data/import
+      - ./.containers/evently/identity:/opt/keycloak/data
+      - ./.files/evently:/opt/keycloak/data/import
     ports:
       - 18080:8080

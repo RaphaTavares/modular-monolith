@@ -1,11 +1,9 @@
-﻿using Evently.Modules.Ticketing.Application.Customers.CreateCustomer;
-using Evently.Modules.Ticketing.Domain.Customers;
-using System.Threading;
+﻿using Evently.Common.Application.Exceptions;
+using Evently.Common.Domain;
+using Evently.Modules.Ticketing.Application.Customers.CreateCustomer;
 using Evently.Modules.Users.IntegrationEvents;
 using MassTransit;
 using MediatR;
-using Evently.Common.Domain;
-using Evently.Common.Application.Exceptions;
 
 namespace Evently.Modules.Ticketing.Presentation.Customers;
 public sealed class UserRegisteredIntegrationEventConsumer(ISender sender) : IConsumer<UserRegisteredIntegrationEvent>
